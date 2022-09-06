@@ -28,14 +28,21 @@ function Form() {
     event.target.name === "enquiry" && setEnquiry(event.target.value);
   };
 
+  // eslint-disable-next-line no-useless-escape
   const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  // eslint-disable-next-line no-useless-escape
+  const nameformat = /^[a-zA-Z]+$/;
 
   const handleValidate = () => {
     const temp = validate;
-    name === "" ? (temp.name = false) : (temp.name = true);
+    //name === "" ? (temp.name = false) : (temp.name = true);
+    nameformat.test(name) ? (temp.name = true) : (temp.name = false);
     mailformat.test(email) ? (temp.email = true) : (temp.email = false);
-    company === "" ? (temp.company = false) : (temp.company = true);
-    enquiry === "" ? (temp.enquiry = false) : (temp.enquiry = true);
+    //company === "" ? (temp.company = false) : (temp.company = true);
+    //enquiry === "" ? (temp.enquiry = false) : (temp.enquiry = true);
+    nameformat.test(company) ? (temp.company = true) : (temp.company = false);
+    nameformat.test(enquiry) ? (temp.enquiry = true) : (temp.enquiry = false);
+
     setValidate(temp);
     temp.name && temp.company && temp.enquiry && temp.email
       ? setOpen("success")
@@ -61,7 +68,7 @@ function Form() {
             value={name}
             onChange={handleInputChange}
             error={!validate.name}
-            helperText={!validate.name && "Name is empty"}
+            helperText={!validate.name && "Please enter a valid name"}
           />
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={6} style={{ padding: "10px" }}>
@@ -72,7 +79,7 @@ function Form() {
             value={company}
             onChange={handleInputChange}
             error={!validate.company}
-            helperText={!validate.company && "Company is empty"}
+            helperText={!validate.company && "Please enter a valid company"}
           />
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={6} style={{ padding: "10px" }}>
@@ -94,7 +101,7 @@ function Form() {
             value={enquiry}
             onChange={handleInputChange}
             error={!validate.enquiry}
-            helperText={!validate.enquiry && "Please enter your enquiry"}
+            helperText={!validate.enquiry && "Please enter a valid enquiry"}
           />
         </Grid>
       </Grid>
