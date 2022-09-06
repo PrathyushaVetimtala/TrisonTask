@@ -31,7 +31,7 @@ function Form() {
   // eslint-disable-next-line no-useless-escape
   const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   // eslint-disable-next-line no-useless-escape
-  const nameformat = /^[a-zA-Z]+$/;
+  const nameformat = /^(?:[a-zA-Z]+|\d+ )$/;
 
   const handleValidate = () => {
     const temp = validate;
