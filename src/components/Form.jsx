@@ -28,7 +28,6 @@ function Form() {
     event.target.name === "enquiry" && setEnquiry(event.target.value);
   };
 
-  // eslint-disable-next-line no-useless-escape
   const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   const handleValidate = () => {
@@ -47,7 +46,7 @@ function Form() {
     handleValidate();
   };
 
-  console.log(validate);
+  //console.log(validate);
 
   return (
     <Container
