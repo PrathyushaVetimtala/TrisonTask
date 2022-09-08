@@ -32,7 +32,8 @@ const Menu = () => {
 
   const displaydata = (item) => {
     const data = item.nutritionLabelling;
-    const keys = Object.keys(data.Item);
+
+    //const keys = Object.keys(data.Item);
     const entries = Object.entries(data.Item);
     console.log("Nutritional values");
     entries.forEach((val) => console.log(val[0] + ":" + val[1]));
