@@ -31,28 +31,11 @@ const Menu = () => {
   }, []);
 
   const displaydata = (item) => {
-    //alert(item.overrideDuration);
-    /*{
-      Object.keys(item.nutritionLabelling).map((list) =>
-        alert(list, item.nutritionLabelling[list].itemid)
-      );
-    }
-    {
-      data &&
-        data.map((group) =>
-          Object.keys(group.nutritionLabelling).map((list) =>
-            alert(group.nutritionLabelling[list].Item)
-          )
-        );
-    }*/
-    //Object.keys(item.nutritionLabelling)
-    //console.log(item.nutritionLabelling);
     const data = item.nutritionLabelling;
     const keys = Object.keys(data.Item);
     const entries = Object.entries(data.Item);
     console.log("Nutritional values");
     entries.forEach((val) => console.log(val[0] + ":" + val[1]));
-    //console.log(nutrition);
   };
   return (
     <Container style={{ marginTop: "50px" }}>
